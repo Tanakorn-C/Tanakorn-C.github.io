@@ -757,13 +757,15 @@
         /* =========== Soft Skills + Languages ใต้ Skills =========*/
 
 .skills-extra {
-  margin: 40px auto 0;              /* กลาง container */
+  margin-top: 40px;
   padding-top: 24px;
+  /* border-top: 1px solid rgba(148, 163, 184, 0.25);  <-- เอาออก */
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
   align-items: flex-start;
-  position: relative;               /* เตรียมให้ ::before วางทับ */
+  justify-content: center;      /* จัด Soft + Languages ให้อยู่กลาง */
+  position: relative;           /* ให้ ::before ผูกกับกล่องนี้ */
 }
 
 /* เส้นกั้นแบบสั้นตรงกลาง */
@@ -773,12 +775,13 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40%;                        /* ปรับสั้นยาวได้ 30–50% */
+  width: 40%;                   /* อยากสั้น/ยาวก็ปรับเลขนี้ */
   border-top: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .skills-extra-block {
   min-width: 260px;
+  text-align: left;             /* จะใส่ก็ได้ ไม่ใส่ก็ได้ เพราะ default คือ left อยู่แล้ว */
 }
 
 .chip-list {
@@ -823,7 +826,7 @@
       <div class="container hero-inner reveal">
         <img
           class="hero-photo"
-          src="assets/Profile2.jpg"
+          src="assets/Profile3.jpg"
           alt="Tanakorn Profile"
         />
         <div>
