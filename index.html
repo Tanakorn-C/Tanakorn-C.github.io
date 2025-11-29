@@ -840,8 +840,16 @@
 
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="#about" class="btn-ghost">More About Me</a>
+          <a href="#projects"
+   class="btn-primary js-scroll"
+   data-scroll-target="#projects">
+  View Projects
+</a>
+<a href="#about"
+   class="btn-primary js-scroll"
+   data-scroll-target="#about">
+  More About Me
+</a>
         </div>
       </div>
     </section>
@@ -1035,7 +1043,7 @@
           <div class="skills-extra-block">
             <h4>Languages</h4>
             <div class="chip-list">
-              <span class="chip">Thai — Native</span>
+              <span class="chip">Thai: Native</span>
               <span class="chip">
                 English: Professional Working Proficiency (CEFR B2) - Certified by British Council
               </span>
@@ -1224,6 +1232,15 @@
     );
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-  </script>
-</body>
-</html>
+ // Smooth scroll *without* changing URL hash
+  document.querySelectorAll("a.js-scroll").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault(); // ไม่เปลี่ยน URL
+      const targetSelector = link.getAttribute("data-scroll-target");
+      const target = document.querySelector(targetSelector);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+</script>
