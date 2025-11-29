@@ -15,86 +15,224 @@
 
   <style>
     :root {
-      --bg: #020617;
-      --bg-soft: #0b1120;
-      --bg-card: #020617;
+      --bg-hero: #020617;
+      --bg-dark: #020617;
+      --bg-soft: #050b18;
+      --bg-softer: #070d1c;
       --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-soft: rgba(56, 189, 248, 0.12);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
       --border-subtle: #1f2937;
       --radius-lg: 16px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.7);
+      --radius-md: 12px;
+      --shadow-soft: 0 22px 50px rgba(15, 23, 42, 0.8);
+      --header-height: 64px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #020617 100%);
+      background: var(--bg-dark);
       color: var(--text-main);
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 1040px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 0 20px;
     }
 
-    /* HEADER */
-    header {
+    /* ===================== NAVBAR ===================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(2,6,23,0.96), rgba(2,6,23,0.88));
+      border-bottom: 1px solid rgba(15,23,42,0.9);
+    }
+
+    .nav-inner {
+      height: var(--header-height);
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .header-main {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 10px;
     }
 
-.profile-photo {
-  width: 220px;
-  height: 220px;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 3px solid var(--accent);
-  background: #020617;
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.95);
-}
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #e0f2fe 0, #bae6fd 30%, #f9fafb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0f172a;
+      box-shadow: 0 10px 28px rgba(15,23,42,0.9);
+    }
 
-.name-block h1 {
-  margin: 0 0 10px;
-  font-size: 3.2rem;
-  letter-spacing: 0.05em;
-}
+    .brand-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
 
-.name-block h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  font-weight: 400;
-}
+    .brand-text span {
+      color: var(--text-main);
+      font-weight: 600;
+    }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
 
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
 
-    .pill {
+    .nav-links a:hover {
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(75,85,99,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.cta-link {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--text-main);
+      box-shadow: 0 12px 28px rgba(8,47,73,0.9);
+    }
+
+    .nav-links a.cta-link:hover {
+      background: var(--accent);
+      color: #020617;
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        gap: 10px;
+        font-size: 0.8rem;
+      }
+      .brand-text {
+        display: none;
+      }
+    }
+
+    /* ===================== GENERIC SECTIONS ===================== */
+
+    main {
+      background: radial-gradient(circle at top, #0b1120 0, #020617 40%, #020617 100%);
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section--dark {
+      background: var(--bg-dark);
+    }
+
+    .section--soft {
+      background: var(--bg-soft);
+    }
+
+    .section--softer {
+      background: var(--bg-softer);
+    }
+
+    .section-title {
+      margin: 0 0 32px;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* ===================== HERO ===================== */
+
+    .hero {
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      background: #020617;
+      box-shadow: 0 26px 64px rgba(0, 0, 0, 0.95);
+    }
+
+    .hero-name {
+      font-size: clamp(2.2rem, 3vw, 2.8rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 12px 0 8px;
+    }
+
+    .hero-role {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 10px;
-      padding: 4px 10px;
+      margin-top: 12px;
+      padding: 5px 12px;
       border-radius: 999px;
       border: 1px solid var(--accent-soft);
       background: rgba(15, 23, 42, 0.8);
@@ -102,239 +240,228 @@
       font-size: 0.8rem;
     }
 
-    .pill-dot {
-      width: 6px;
-      height: 6px;
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
       background: var(--accent);
     }
 
-    nav {
+    .hero-actions {
+      margin-top: 24px;
       display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.9rem;
+      justify-content: center;
     }
 
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--text-main);
-      background: rgba(15, 23, 42, 0.9);
-      border-color: var(--border-subtle);
-    }
-
-    /* SECTIONS */
-    section {
-      margin-bottom: 40px;
-    }
-
-    section h3 {
-      margin: 0 0 16px;
-      font-size: 1.2rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #9ca3af;
+    .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #020617;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 18px 40px rgba(8,47,73,0.9);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
-    section h3::before {
-      content: "";
-      width: 24px;
-      height: 2px;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+      background: #0ea5e9;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
       border-radius: 999px;
-      background: var(--accent);
+      border: 1px solid rgba(148,163,184,0.6);
+      background: transparent;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15,23,42,0.9);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      max-width: 580px;
+      margin: 8px auto 0;
+      font-size: 0.95rem;
+      color: #d1d5db;
+    }
+
+    /* ===================== ABOUT ===================== */
+
+    .about-grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 800px) {
+      .about-grid {
+        grid-template-columns: 2.1fr 1.4fr;
+        align-items: start;
+      }
     }
 
     .about-text {
-      line-height: 1.7;
       font-size: 0.96rem;
       color: #d1d5db;
-      max-width: 720px;
     }
 
-    .about-text span.highlight {
+    .about-text .highlight {
       color: var(--accent);
       font-weight: 500;
     }
 
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 28px;
-      margin-top: 12px;
+    .about-highlights {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148,163,184,0.3);
+      padding: 18px 18px 14px;
+      box-shadow: 0 16px 36px rgba(15,23,42,0.75);
+      font-size: 0.9rem;
+      color: #d1d5db;
     }
 
-    .skill-item {
-      text-align: center;
-      max-width: 210px;
-      margin: 0 auto;
-      padding: 14px 10px 4px;
-      border-radius: 18px;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      backdrop-filter: blur(10px);
+    .about-highlights h4 {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .about-highlights ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .about-highlights li {
+      margin-bottom: 4px;
+    }
+
+    /* ===================== SKILLS ===================== */
+
+    .skills-layout {
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 900px) {
+      .skills-layout {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .skills-category h4 {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .skill-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.25);
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
-    .skill-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.8);
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
       border-color: var(--accent);
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15,23,42,0.98);
     }
 
     .skill-icon {
-      width: 72px;
-      height: 72px;
+      width: 36px;
+      height: 36px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 0, #e0f2fe 0, #bae6fd 30%, #f9fafb 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 10px;
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.45);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.7);
     }
 
     .skill-icon img {
-      width: 60%;
-      height: 60%;
+      width: 70%;
+      height: 70%;
       object-fit: contain;
     }
 
-    .skill-item h4 {
-      margin: 0 0 4px;
-      font-size: 0.98rem;
-      color: var(--text-main);
+    .skill-info-title {
+      font-size: 0.9rem;
+      margin: 0;
     }
 
-    .skill-item p {
-      margin: 0 0 8px;
-      font-size: 0.82rem;
+    .skill-info-sub {
+      font-size: 0.78rem;
       color: var(--text-muted);
+      margin: 2px 0 0;
     }
 
-    /* PROJECTS */
+    /* ===================== PROJECTS ===================== */
+
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 22px;
+      gap: 24px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 880px) {
       .projects-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
 
-    /* EXPERIENCE */
-.experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-top: 8px;
-}
-
-.experience-item {
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
-  border-radius: var(--radius-lg);
-  padding: 16px 18px 14px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.75);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.experience-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-soft);
-  border-color: rgba(56, 189, 248, 0.8);
-}
-
-.exp-header {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.exp-header h4 {
-  margin: 0;
-  font-size: 1rem;
-}
-
-.exp-org {
-  font-size: 0.86rem;
-  color: var(--text-muted);
-}
-
-@media (min-width: 640px) {
-  .exp-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-}
-
-.exp-meta {
-  margin-top: 4px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.exp-desc {
-  margin: 8px 0 0;
-  padding-left: 18px;
-  font-size: 0.9rem;
-  color: #d1d5db;
-}
-
-.exp-desc li {
-  margin-bottom: 4px;
-}
-
-
     .project-card {
       position: relative;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-soft));
       border-radius: var(--radius-lg);
       padding: 18px 18px 16px;
       border: 1px solid var(--border-subtle);
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.7);
+      gap: 9px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      border: 1px solid transparent;
-      pointer-events: none;
-      transition: border-color 0.25s ease;
     }
 
     .project-card:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-soft);
       border-color: rgba(56, 189, 248, 0.8);
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), var(--bg-soft));
-    }
-
-    .project-card:hover::before {
-      border-color: rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), var(--bg-softer));
     }
 
     .project-card h4 {
@@ -356,535 +483,694 @@
       margin-bottom: 4px;
     }
 
-    .project-links {
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
       margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .project-links {
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .btn {
+    .btn-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 500;
+      font-size: 0.8rem;
+      color: var(--accent);
       text-decoration: none;
-      border: 1px solid var(--accent);
-      background: var(--accent-soft);
-      color: var(--text-main);
-      box-shadow: 0 10px 24px rgba(8, 47, 73, 0.7);
-      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 4px 0;
     }
 
-    .btn:hover {
-      background: var(--accent);
-      color: #0b1120;
-      transform: translateY(-1px);
-      box-shadow: 0 16px 36px rgba(8, 47, 73, 0.9);
+    .btn-link:hover {
+      text-decoration: underline;
     }
 
-    .btn span.icon {
+    /* ===================== EXPERIENCE ===================== */
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .experience-item {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
+      border-radius: var(--radius-lg);
+      padding: 16px 18px 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.75);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .experience-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(56, 189, 248, 0.8);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .exp-header h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .exp-org {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 640px) {
+      .exp-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+    }
+
+    .exp-meta {
+      margin-top: 4px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .exp-desc {
+      margin: 8px 0 0;
+      padding-left: 18px;
       font-size: 0.9rem;
+      color: #d1d5db;
     }
 
- /* CERTIFICATES */
-.cert-layout {
-  display: grid;
-  gap: 24px;
-  margin-top: 8px;
-}
+    .exp-desc li {
+      margin-bottom: 4px;
+    }
 
-@media (min-width: 860px) {
-  .cert-layout {
-    grid-template-columns: 3fr 2fr;
-    align-items: flex-start;
-  }
-}
+    /* ===================== CERTIFICATES ===================== */
 
-.cert-featured-title,
-.cert-others-title {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  margin: 0 0 8px;
-}
+    .cert-layout {
+      display: grid;
+      gap: 24px;
+    }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
+    @media (min-width: 860px) {
+      .cert-layout {
+        grid-template-columns: 3fr 2fr;
+        align-items: flex-start;
+      }
+    }
 
-/* Supporting cast grid: การ์ดเล็กเรียงเป็นกริด */
-.cert-grid-support {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
+    .cert-featured-title,
+    .cert-others-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin: 0 0 8px;
+    }
 
-/* การ์ดหลัก (Heroes) */
-.cert-card {
-  position: relative;
-  display: flex;
-  gap: 12px;
-  padding: 14px 14px 12px;
-  border-radius: var(--radius-lg);
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
-  transition: transform 0.22s ease, box-shadow 0.22s ease,
-              border-color 0.22s ease, background 0.22s ease;
-}
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
 
-.cert-card.hero {
-  padding: 16px 18px 14px;
-}
+    .cert-card {
+      position: relative;
+      display: flex;
+      gap: 12px;
+      padding: 16px 18px 14px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-soft));
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
+      transition: transform 0.22s ease, box-shadow 0.22s ease,
+                  border-color 0.22s ease, background 0.22s ease;
+    }
 
-.cert-card.support {
-  padding: 10px 12px 8px;
-  border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.6);
-}
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(56, 189, 248, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), var(--bg-softer));
+    }
 
-.cert-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-soft);
-  border-color: rgba(56, 189, 248, 0.9);
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), var(--bg-soft));
-}
+    .cert-thumb {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #e0f2fe 0, #bae6fd 30%, #f9fafb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.55);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
 
-.cert-thumb {
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 0, #e0f2fe 0, #bae6fd 30%, #f9fafb 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.55);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #0f172a;
-}
+    .cert-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-.cert-body {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+    .cert-name {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
 
-.cert-name {
-  font-size: 0.96rem;
-  font-weight: 600;
-  color: var(--text-main);
-}
+    .cert-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
-.cert-card.support .cert-name {
-  font-size: 0.9rem;
-}
+    .cert-desc {
+      font-size: 0.86rem;
+      color: #d1d5db;
+    }
 
-.cert-meta {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
+    .cert-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
 
-.cert-desc {
-  font-size: 0.86rem;
-  color: #d1d5db;
-}
+    .cert-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
 
-.cert-card.support .cert-desc {
-  font-size: 0.8rem;
-}
+    .cert-others {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 14px 16px 12px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.6);
+    }
 
-.cert-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 4px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  font-size: 0.76rem;
-  color: var(--text-muted);
-}
+    .cert-others ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
+      font-size: 0.86rem;
+      color: #d1d5db;
+    }
 
-.cert-tag-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--accent);
-}
+    .cert-others li {
+      margin-bottom: 4px;
+    }
 
-/* Additional learning / hidden gems */
-.cert-others {
-  background: rgba(15, 23, 42, 0.7);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  padding: 14px 16px 12px;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.6);
-}
-
-.cert-others ul {
-  margin: 4px 0 0;
-  padding-left: 18px;
-  font-size: 0.86rem;
-  color: #d1d5db;
-}
-
-.cert-others li {
-  margin-bottom: 4px;
-}
-
-
+    /* ===================== FOOTER ===================== */
 
     footer {
-      margin-top: 40px;
+      padding: 24px 0 32px;
+      background: #020617;
       border-top: 1px solid var(--border-subtle);
-      padding-top: 16px;
       font-size: 0.8rem;
       color: #6b7280;
+    }
+
+    .footer-inner {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 8px;
+      align-items: center;
     }
 
     footer span.accent {
       color: var(--accent);
     }
 
-    /* Fade-in up animation */
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(18px);
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .fade-in-up.visible {
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+      text-decoration: underline;
+    }
+
+    /* ===================== FADE-IN ANIMATION ===================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <!-- HEADER -->
-    <header class="fade-in-up">
-      <div class="header-main">
+  <!-- STICKY NAVBAR -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-mark">TC</div>
+        <div class="brand-text">
+          <span>Tanakorn Channgarm</span> · Software Developer
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#projects" class="cta-link">View Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="section section--dark hero">
+      <div class="container hero-inner reveal">
         <img
-          class="profile-photo"
+          class="hero-photo"
           src="assets/Profile.jpg"
           alt="Tanakorn Profile"
         />
-
-        <div class="name-block">
-          <h1>Tanakorn Channgarm</h1>
-          <h2>Computer Science Student · Software Developer</h2>
-          <div class="pill">
-            <span class="pill-dot"></span>
-            <span>Focused on Mobile & Backend Development</span>
+        <div>
+          <h1 class="hero-name">Tanakorn Channgarm</h1>
+          <h2 class="hero-role">Computer Science Student · Software Developer (Flutter &amp; Spring Boot)</h2>
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>Focused on Mobile &amp; Backend Development</span>
           </div>
         </div>
+        <p class="hero-tagline">
+          Building real-world applications from medicine reminder systems to educational RPG games.
+          I enjoy turning ideas into usable software with clean code and clear user flows.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#about" class="btn-ghost">More About Me</a>
+        </div>
       </div>
-
-      <nav>
-        <a href="mailto:tanakorncn.159@gmail.com">tanakorncn.159@gmail.com</a>
-        <a href="https://www.linkedin.com/in/tanakorn-c-092038346" target="_blank">LinkedIn</a>
-      </nav>
-    </header>
+    </section>
 
     <!-- ABOUT -->
-    <section id="about" class="fade-in-up">
-      <h3>About</h3>
-      <p class="about-text">
-        I am a Computer Science student at the <span class="highlight">University of the Thai Chamber of Commerce (UTCC)</span>,
-        currently maintaining a GPAX of 3.36. My main focus is on <span class="highlight">mobile and backend development</span>,
-        where I have hands-on experience building an Android medicine reminder application using
-        <span class="highlight">Flutter</span> and <span class="highlight">Spring Boot</span>.
-        I also explore complex logic and object-oriented programming through game development in
-        <span class="highlight">Unity (C#)</span>.
-        <br /><br />
-        Beyond coding, my experience as a Teacher's Assistant has strengthened my communication,
-        patience, and adaptability. I am eager to apply my skills in a real-world environment,
-        contribute to meaningful projects, and continue growing as a software developer.
-      </p>
+    <section id="about" class="section section--soft">
+      <div class="container reveal">
+        <h3 class="section-title">About</h3>
+        <div class="about-grid">
+          <div class="about-text">
+            I am a Computer Science student at the
+            <span class="highlight">University of the Thai Chamber of Commerce (UTCC)</span>,
+            currently maintaining a GPAX of 3.36. My main focus is on
+            <span class="highlight">mobile and backend development</span>, where I have hands-on experience
+            building an Android medicine reminder application using
+            <span class="highlight">Flutter</span> and <span class="highlight">Spring Boot</span>.
+            I also explore complex logic and object-oriented programming through game development in
+            <span class="highlight">Unity (C#)</span>.
+            <br /><br />
+            Beyond coding, my experience as a Teacher's Assistant has strengthened my communication,
+            patience, and adaptability. I am eager to apply my skills in a real-world environment,
+            contribute to meaningful projects, and continue growing as a software developer.
+          </div>
+
+          <aside class="about-highlights">
+            <h4>Highlights</h4>
+            <ul>
+              <li>Built a full-stack <strong>Medicine Reminder</strong> app (Flutter + Spring Boot + MongoDB).</li>
+              <li>Developed <strong>"Coding is Magic"</strong>, a 2D educational RPG in Unity (C#) teaching Python.</li>
+              <li>Project showcased at university Open House and awarded <strong>2nd place</strong> in CS showcase.</li>
+              <li>Teacher's Assistant for digital skills workshops with <strong>Depa Thailand</strong>.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
     </section>
 
     <!-- SKILLS -->
- <section id="skills" class="fade-in-up">
-  <h3>Skills</h3>
-  <div class="skills-grid">
+    <section id="skills" class="section section--dark">
+      <div class="container reveal">
+        <h3 class="section-title">Skills</h3>
 
-    <!-- Java FIRST -->
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" />
+        <div class="skills-layout">
+          <!-- Languages -->
+          <div class="skills-category">
+            <h4>Languages</h4>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Java</p>
+                  <p class="skill-info-sub">OOP foundations, data structures, backend fundamentals.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Dart</p>
+                  <p class="skill-info-sub">Flutter UI, state handling, notification flows.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                </div>
+                <div>
+                  <p class="skill-info-title">C#</p>
+                  <p class="skill-info-sub">Unity game systems and turn-based combat logic.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Python</p>
+                  <p class="skill-info-sub">Scripting, utilities, quiz logic for learning tools.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                </div>
+                <div>
+                  <p class="skill-info-title">JavaScript</p>
+                  <p class="skill-info-sub">Interactive UI and basic web application logic.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frameworks & Platforms -->
+          <div class="skills-category">
+            <h4>Frameworks &amp; Platforms</h4>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Flutter</p>
+                  <p class="skill-info-sub">Android UI, forms, reminders, and navigation flows.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Spring Boot</p>
+                  <p class="skill-info-sub">REST APIs, CRUD services, custom alarm logic.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Unity Engine</p>
+                  <p class="skill-info-sub">2D turn-based RPG systems and game events.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Databases & Tools -->
+          <div class="skills-category">
+            <h4>Databases &amp; Tools</h4>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" />
+                </div>
+                <div>
+                  <p class="skill-info-title">SQL / MySQL</p>
+                  <p class="skill-info-sub">Queries, joins, data modeling, reporting.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
+                </div>
+                <div>
+                  <p class="skill-info-title">MongoDB</p>
+                  <p class="skill-info-sub">Document schemas for medicines and quiz content.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Git / GitHub</p>
+                  <p class="skill-info-sub">Branching, commits, and collaboration.</p>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" />
+                </div>
+                <div>
+                  <p class="skill-info-title">Figma</p>
+                  <p class="skill-info-sub">Wireframes, UI prototypes, and layout planning.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h4>Java</h4>
-      <p>OOP foundations and data structures from coursework.</p>
-    </div>
-
-    <!-- Flutter SECOND -->
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter icon" />
-      </div>
-      <h4>Flutter</h4>
-      <p>Android medicine reminder UI and workflows.</p>
-    </div>
-
-    <!-- ที่เหลือเรียงต่อไป -->
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" />
-      </div>
-      <h4>Python</h4>
-      <p>Scripting, utilities, and quiz logic for learning tools.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# icon" />
-      </div>
-      <h4>C#</h4>
-      <p>Unity game systems and turn-based combat logic.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" />
-      </div>
-      <h4>JavaScript</h4>
-      <p>Interactive UI and basic web application logic.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart icon" />
-      </div>
-      <h4>Dart</h4>
-      <p>Flutter UI, state handling, and notification flows.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL icon" />
-      </div>
-      <h4>SQL</h4>
-      <p>Queries, joins, and basic data modeling.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot icon" />
-      </div>
-      <h4>Spring Boot</h4>
-      <p>REST APIs and backend services for schedules and alarms.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity icon" />
-      </div>
-      <h4>Unity Engine</h4>
-      <p>2D turn-based RPG systems and gameplay events.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB icon" />
-      </div>
-      <h4>MongoDB</h4>
-      <p>Document schemas for medicines and quiz content.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git icon" />
-      </div>
-      <h4>Git / GitHub</h4>
-      <p>Branching, commits, and collaborative workflow.</p>
-    </div>
-
-    <div class="skill-item fade-in-up">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma icon" />
-      </div>
-      <h4>Figma</h4>
-      <p>Wireframes, prototypes, and UI component design.</p>
-    </div>
-
-  </div>
-</section>
+    </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="fade-in-up">
-      <h3>Projects</h3>
-      <div class="projects-grid">
+    <section id="projects" class="section section--soft">
+      <div class="container reveal">
+        <h3 class="section-title">Projects</h3>
+        <div class="projects-grid">
 
-        <div class="project-card fade-in-up">
-          <h4>Medicine Reminder Application</h4>
-          <div class="project-meta">
-            Flutter · Android · Spring Boot · MongoDB
-          </div>
-          <p class="project-desc">
-            Android application that helps patients improve medication adherence with clear schedules and timely reminders.
-          </p>
-          <ul class="project-desc">
-            <li>Developed the mobile app in Flutter, focusing on clean UI and simple user flows for adding and managing medicines.</li>
-            <li>Architected a Spring Boot backend with MongoDB for CRUD operations on medication schedules, images, and custom alarm triggers.</li>
-            <li>Connected the app and backend via REST APIs to keep local reminders in sync with server data.</li>
-          </ul>
-          <div class="project-links">
-            <!-- TODO: แก้ลิงก์ให้เป็น repo จริงของคุณ -->
-            <a class="btn" href="https://github.com/Tanakorn-C/Medicine-Reminder-Flutter" target="_blank">
-              <span class="icon">↗</span>
-              <span>View on GitHub</span>
-            </a>
-          </div>
+          <!-- Medicine Reminder -->
+          <article class="project-card">
+            <h4>Medicine Reminder Application</h4>
+            <div class="project-meta">
+              Flutter · Android · Spring Boot · MongoDB
+            </div>
+            <p class="project-desc">
+              Android application that helps users improve medication adherence with clear schedules and timely reminders.
+            </p>
+            <ul class="project-desc">
+              <li>Implemented medicine CRUD, schedule configuration, and local notifications in Flutter.</li>
+              <li>Architected a Spring Boot backend with MongoDB for storing medicine data, images, and custom alarm rules.</li>
+              <li>Connected the app and backend via REST APIs to keep reminders in sync across devices.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">REST API</span>
+            </div>
+            <div class="project-links">
+              <a class="btn-link" href="https://github.com/Tanakorn-C/Medicine-Reminder-Flutter" target="_blank" rel="noreferrer">
+                <span>↗</span> <span>View on GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Coding is Magic -->
+          <article class="project-card">
+            <h4>Educational RPG – "Coding is Magic"</h4>
+            <div class="project-meta">
+              Unity · C# · 2D Turn-based RPG
+            </div>
+            <p class="project-desc">
+              A 2D turn-based adventure game designed to teach Python programming fundamentals through gamification and quizzes.
+            </p>
+            <ul class="project-desc">
+              <li>Showcased at university Open House and awarded <strong>2nd place</strong> in the Computer Science program showcase.</li>
+              <li>Built the core combat system in Unity using C#, including turn order, actions, and feedback to the player.</li>
+              <li>Created mechanics where casting spells requires solving quiz questions, with damage and bonuses based on accuracy and response time.</li>
+              <li>Designed a dynamic content system so instructors can add, edit, or remove quiz questions to adapt the learning curriculum.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">Education</span>
+              <span class="tag">Python Quizzes</span>
+            </div>
+            <div class="project-links">
+              <a class="btn-link" href="https://github.com/Tanakorn-C/Coding-is-Magic-RPG" target="_blank" rel="noreferrer">
+                <span>↗</span> <span>View on GitHub</span>
+              </a>
+            </div>
+          </article>
+
         </div>
-
-        <div class="project-card fade-in-up">
-          <h4>Educational RPG Game – “Coding is Magic”</h4>
-          <div class="project-meta">
-            Unity · C# · 2D Turn-based RPG
-          </div>
-          <p class="project-desc">
-            A 2D turn-based adventure game designed to teach Python programming fundamentals through gamification and quizzes.
-          </p>
-          <ul class="project-desc">
-    <li>Showcased at the university Open House and awarded 2nd place in the Computer Science program showcase.</li>
-    <li>Implemented the core combat system in Unity using C#, including turn order, actions, and player feedback.</li>
-    <li>Created mechanics where casting spells requires solving quiz questions, with damage and bonuses based on accuracy and response time.</li>
-    <li>Designed a dynamic content system so instructors can add, edit, or remove quiz questions to adapt the learning curriculum.</li>
-  </ul>
-          <div class="project-links">
-            <!-- TODO: แก้ลิงก์ให้เป็น repo จริงของคุณ -->
-            <a class="btn" href="https://github.com/Tanakorn-C/Coding-is-Magic-RPG" target="_blank">
-              <span class="icon">↗</span>
-              <span>View on GitHub</span>
-            </a>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- EXPERIENCE -->
-<section id="experience" class="fade-in-up">
-  <h3>Experience</h3>
-  <div class="experience-list">
-
-    <div class="experience-item fade-in-up">
-      <div class="exp-header">
-        <h4>Teacher's Assistant</h4>
-        <span class="exp-org">Depa Thailand · Remote</span>
-      </div>
-      <div class="exp-meta">Aug 2023 – Oct 2023</div>
-      <ul class="exp-desc">
-        <li>Facilitated virtual workshops guiding senior entrepreneurs on digital marketing applications for business growth.</li>
-        <li>Simplified technical concepts for non-technical audiences, demonstrating strong patience and communication skills.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-        <!-- CERTIFICATES -->
-  <!-- CERTIFICATES -->
-<section id="certificates" class="fade-in-up">
-  <h3>Certificates & Continuous Learning</h3>
-
-  <div class="cert-layout">
-
-    <!-- LEFT: Core Certifications -->
-    <div>
-      <!-- Core Certifications -->
-      <p class="cert-featured-title">Core Certifications</p>
-      <div class="cert-grid">
-
-        <!-- Certified Backend Developer with Java -->
-        <div class="cert-card hero fade-in-up">
-          <div class="cert-thumb">J</div>
-          <div class="cert-body">
-            <div class="cert-name">Certified Backend Developer with Java</div>
-            <div class="cert-meta">W3Schools · 2023</div>
-            <div class="cert-desc">
-              Mastered core backend concepts, Java EE standards, and database integration,
-              building a strong foundation for Spring Boot and RESTful services.
+    <section id="experience" class="section section--dark">
+      <div class="container reveal">
+        <h3 class="section-title">Experience</h3>
+        <div class="experience-list">
+          <article class="experience-item">
+            <div class="exp-header">
+              <h4>Teacher's Assistant</h4>
+              <span class="exp-org">Depa Thailand · Remote</span>
             </div>
-            <div class="cert-tag">
-              <span class="cert-tag-dot"></span>
-              <span>Backend · Java · Databases</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Certified Java Developer -->
-        <div class="cert-card hero fade-in-up">
-          <div class="cert-thumb">Jv</div>
-          <div class="cert-body">
-            <div class="cert-name">Certified Java Developer</div>
-            <div class="cert-meta">W3Schools · 2023</div>
-            <div class="cert-desc">
-              Strengthened core Java skills including OOP, collections,
-              error handling, and clean coding practices used in projects.
-            </div>
-            <div class="cert-tag">
-              <span class="cert-tag-dot"></span>
-              <span>Core Java · OOP</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mini Data Science Bootcamp -->
-        <div class="cert-card hero fade-in-up">
-          <div class="cert-thumb">DS</div>
-          <div class="cert-body">
-            <div class="cert-name">Mini Data Science Bootcamp</div>
-            <div class="cert-meta">DataRockie · 2023</div>
-            <div class="cert-desc">
-              Project-based training on spreadsheets, SQL, dashboards,
-              and Python analytics for turning raw data into insights.
-            </div>
-            <div class="cert-tag">
-              <span class="cert-tag-dot"></span>
-              <span>Data · SQL · Analytics</span>
-            </div>
-          </div>
+            <div class="exp-meta">Aug 2023 – Oct 2023</div>
+            <ul class="exp-desc">
+              <li>Facilitated virtual workshops guiding senior entrepreneurs on digital marketing applications for business growth.</li>
+              <li>Simplified technical concepts for non-technical audiences, demonstrating strong patience and communication skills.</li>
+            </ul>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- RIGHT: Additional Learning -->
-    <div class="cert-others fade-in-up">
-      <p class="cert-others-title">Additional Learning</p>
-      <ul>
-        <li>Certified MySQL Developer — W3Schools</li>
-        <li>Certified SQL Developer — W3Schools</li>
-        <li>Writing as a Tool for Thinking — DataRockie</li>
-      </ul>
-    </div>
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="section section--soft">
+      <div class="container reveal">
+        <h3 class="section-title">Certificates &amp; Continuous Learning</h3>
 
-  </div>
-</section>
+        <div class="cert-layout">
+          <!-- Core Certifications -->
+          <div>
+            <p class="cert-featured-title">Core Certifications</p>
+            <div class="cert-grid">
 
-    <footer class="fade-in-up">
+              <div class="cert-card">
+                <div class="cert-thumb">J</div>
+                <div class="cert-body">
+                  <div class="cert-name">Certified Backend Developer with Java</div>
+                  <div class="cert-meta">W3Schools · 2023</div>
+                  <div class="cert-desc">
+                    Mastered core backend concepts, Java EE standards, and database integration,
+                    building a strong foundation for Spring Boot and RESTful services.
+                  </div>
+                  <div class="cert-tag">
+                    <span class="cert-tag-dot"></span>
+                    <span>Backend · Java · Databases</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-thumb">Jv</div>
+                <div class="cert-body">
+                  <div class="cert-name">Certified Java Developer</div>
+                  <div class="cert-meta">W3Schools · 2023</div>
+                  <div class="cert-desc">
+                    Strengthened core Java skills including OOP, collections,
+                    error handling, and clean coding practices used in projects.
+                  </div>
+                  <div class="cert-tag">
+                    <span class="cert-tag-dot"></span>
+                    <span>Core Java · OOP</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-thumb">DS</div>
+                <div class="cert-body">
+                  <div class="cert-name">Mini Data Science Bootcamp</div>
+                  <div class="cert-meta">DataRockie · 2023</div>
+                  <div class="cert-desc">
+                    Project-based training on spreadsheets, SQL, dashboards,
+                    and Python analytics for turning raw data into decision-making insights.
+                  </div>
+                  <div class="cert-tag">
+                    <span class="cert-tag-dot"></span>
+                    <span>Data · SQL · Analytics</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Additional Learning -->
+          <aside class="cert-others">
+            <p class="cert-others-title">Additional Learning</p>
+            <ul>
+              <li>Certified MySQL Developer — W3Schools</li>
+              <li>Certified SQL Developer — W3Schools</li>
+              <li>Writing as a Tool for Thinking — DataRockie</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
       <span>© <span id="year"></span> <span class="accent">Tanakorn Channgarm</span></span>
-    </footer>
+      <div class="footer-links">
+        <a href="mailto:tanakorncn.159@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/tanakorn-c-092038346" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/Tanakorn-C" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    // ปีปัจจุบัน
+    // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Fade-in up on scroll
+    // Fade-in on scroll
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -897,7 +1183,7 @@
       { threshold: 0.12 }
     );
 
-    document.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
