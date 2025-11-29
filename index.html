@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name | Software Developer Intern</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #1f2937;
+      padding-bottom: 24px;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid #38bdf8;
+      background: #020617;
+    }
+
+    .name-block h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .name-block h2 {
+      margin: 4px 0 0;
+      font-size: 1rem;
+      color: #9ca3af;
+      font-weight: normal;
+    }
+
+    nav {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #e5e7eb;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    section h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      border-left: 4px solid #38bdf8;
+      padding-left: 8px;
+    }
+
+    .about-text {
+      line-height: 1.6;
+      font-size: 0.95rem;
+      color: #d1d5db;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group {
+      background: #020617;
+      border-radius: 12px;
+      padding: 12px 14px;
+      border: 1px solid #1f2937;
+    }
+
+    .skill-group h4 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    .skill-group p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .project-card {
+      background: #020617;
+      border-radius: 12px;
+      padding: 14px 16px;
+      border: 1px solid #1f2937;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-card h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    .project-links a {
+      font-size: 0.85rem;
+      color: #38bdf8;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 32px;
+      border-top: 1px solid #1f2937;
+      padding-top: 16px;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- SECTION 1: PHOTO + NAME -->
+    <header>
+      <!-- เปลี่ยน src เป็นลิงก์รูปของคุณ -->
+      <img
+        class="profile-photo"
+        src="https://via.placeholder.com/200"
+        alt="Your Name"
+      />
+
+      <div class="name-block">
+        <h1>Your Name</h1>
+        <h2>Computer Engineering Student · Software Developer Intern</h2>
+
+        <nav>
+          <!-- แก้ลิงก์ตามจริง -->
+          <a href="mailto:you@example.com">you@example.com</a>
+          <a href="https://github.com/your-username" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SECTION 2: ABOUT -->
+    <section id="about">
+      <h3>About</h3>
+      <p class="about-text">
+        I am a Computer Engineering student with a strong interest in software development,
+        focusing on building practical applications and learning modern tools and frameworks.
+        I enjoy working on side projects, improving code quality, and collaborating with others
+        to turn ideas into working products.
+      </p>
+    </section>
+
+    <!-- SECTION 3: SKILLS -->
+    <section id="skills">
+      <h3>Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <p>Python, Java, C#, Dart, JavaScript</p>
+        </div>
+        <div class="skill-group">
+          <h4>Frameworks & Tools</h4>
+          <p>Flutter, Unity, Spring Boot, Node.js, Git</p>
+        </div>
+        <div class="skill-group">
+          <h4>Databases</h4>
+          <p>MongoDB, MySQL, Firestore</p>
+        </div>
+        <div class="skill-group">
+          <h4>Other</h4>
+          <p>REST APIs, OOP, Basic data structures & algorithms</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PROJECTS -->
+    <section id="projects">
+      <h3>Projects</h3>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h4>Medicine Reminder App</h4>
+          <div class="project-meta">
+            Flutter · Android · Notifications · Firebase / MongoDB
+          </div>
+          <p class="project-desc">
+            Mobile application that helps users schedule and manage their medicine intake
+            with local notifications, schedule management, and a simple, clean UI.
+          </p>
+          <ul class="project-desc">
+            <li>Implemented local notification scheduling with custom time and repeat patterns.</li>
+            <li>Designed data model for medicines, schedules, and user preferences.</li>
+            <li>Integrated backend API / database to store and sync user data.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/your-username/medicine-reminder" target="_blank">Source code</a>
+            <!-- ถ้ามีภาพหน้าจอ / demo เพิ่มได้ -->
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <h4>Coding is Magic – Turn-based RPG</h4>
+          <div class="project-meta">
+            Unity · C# · 2D Game · Turn-based Combat
+          </div>
+          <p class="project-desc">
+            A 2D turn-based RPG prototype where players use coding-themed abilities to
+            battle enemies, focusing on turn order, animations, and basic combat logic.
+          </p>
+          <ul class="project-desc">
+            <li>Implemented turn-based battle system with player and enemy actions.</li>
+            <li>Set up animation states and sprite handling for characters.</li>
+            <li>Structured code to be extendable for new skills and enemies.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/your-username/coding-is-magic" target="_blank">Source code</a>
+          </div>
+        </div>
+
+        <!-- Project 3 (ตัวอย่างเพิ่ม/ลบได้) -->
+        <div class="project-card">
+          <h4>Simple REST API Backend</h4>
+          <div class="project-meta">
+            Spring Boot · REST · MongoDB
+          </div>
+          <p class="project-desc">
+            Backend service that provides CRUD APIs for managing resources, focusing
+            on clean structure and basic validation.
+          </p>
+          <ul class="project-desc">
+            <li>Designed REST endpoints and data models.</li>
+            <li>Connected to MongoDB and implemented repository pattern.</li>
+            <li>Tested the API using Postman / HTTP clients.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/your-username/backend-api" target="_blank">Source code</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name. Built for Software Developer Intern applications.
+    </footer>
+  </div>
+
+  <script>
+    // เติมปีปัจจุบันอัตโนมัติ
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
