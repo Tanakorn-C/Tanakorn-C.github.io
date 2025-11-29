@@ -390,7 +390,7 @@
       font-size: 0.9rem;
     }
 
-    /* CERTIFICATES */
+ /* CERTIFICATES */
 .cert-layout {
   display: grid;
   gap: 24px;
@@ -419,6 +419,12 @@
   gap: 18px;
 }
 
+/* Supporting cast grid: การ์ดเล็กเรียงเป็นกริด */
+.cert-grid-support {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* การ์ดหลัก (Heroes) */
 .cert-card {
   position: relative;
   display: flex;
@@ -428,7 +434,18 @@
   background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
   border: 1px solid var(--border-subtle);
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+              border-color 0.22s ease, background 0.22s ease;
+}
+
+.cert-card.hero {
+  padding: 16px 18px 14px;
+}
+
+.cert-card.support {
+  padding: 10px 12px 8px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.6);
 }
 
 .cert-card:hover {
@@ -465,6 +482,10 @@
   color: var(--text-main);
 }
 
+.cert-card.support .cert-name {
+  font-size: 0.9rem;
+}
+
 .cert-meta {
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -473,6 +494,10 @@
 .cert-desc {
   font-size: 0.86rem;
   color: #d1d5db;
+}
+
+.cert-card.support .cert-desc {
+  font-size: 0.8rem;
 }
 
 .cert-tag {
@@ -495,7 +520,7 @@
   background: var(--accent);
 }
 
-/* Other certs list */
+/* Additional learning / hidden gems */
 .cert-others {
   background: rgba(15, 23, 42, 0.7);
   border-radius: var(--radius-lg);
@@ -514,6 +539,7 @@
 .cert-others li {
   margin-bottom: 4px;
 }
+
 
 
     footer {
@@ -772,42 +798,61 @@
 </section>
 
         <!-- CERTIFICATES -->
+       <!-- CERTIFICATES -->
     <section id="certificates" class="fade-in-up">
       <h3>Certificates & Continuous Learning</h3>
 
       <div class="cert-layout">
 
-        <!-- Featured Certificates -->
+        <!-- LEFT: Heroes + Supporting Cast -->
         <div>
-          <p class="cert-featured-title">Featured Certificates</p>
+          <!-- The Heroes -->
+          <p class="cert-featured-title">The Heroes</p>
           <div class="cert-grid">
 
-            <!-- Backend Developer with Java -->
-            <div class="cert-card fade-in-up">
+            <!-- Certified Backend Developer with Java -->
+            <div class="cert-card hero fade-in-up">
               <div class="cert-thumb">J</div>
               <div class="cert-body">
-                <div class="cert-name">Backend Developer with Java</div>
+                <div class="cert-name">Certified Backend Developer with Java</div>
                 <div class="cert-meta">W3Schools · 2023</div>
                 <div class="cert-desc">
-                  Focused on Java web backend fundamentals including Servlet, JSP, and basic enterprise architecture,
-                  building a solid foundation for frameworks like Spring Boot.
+                  Mastered core backend concepts, Java EE standards, and database integration,
+                  building a strong foundation for Spring Boot and RESTful services.
                 </div>
                 <div class="cert-tag">
                   <span class="cert-tag-dot"></span>
-                  <span>Backend · Java · Web</span>
+                  <span>Backend · Java · Databases</span>
                 </div>
               </div>
             </div>
 
-            <!-- Data Science Mini Bootcamp -->
-            <div class="cert-card fade-in-up">
+            <!-- Certified Java Developer -->
+            <div class="cert-card hero fade-in-up">
+              <div class="cert-thumb">Jv</div>
+              <div class="cert-body">
+                <div class="cert-name">Certified Java Developer</div>
+                <div class="cert-meta">W3Schools · 2023</div>
+                <div class="cert-desc">
+                  Strengthened core Java skills including OOP, collections, error handling,
+                  and clean coding practices used across academic and personal projects.
+                </div>
+                <div class="cert-tag">
+                  <span class="cert-tag-dot"></span>
+                  <span>Core Java · OOP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini Data Science Bootcamp -->
+            <div class="cert-card hero fade-in-up">
               <div class="cert-thumb">DS</div>
               <div class="cert-body">
-                <div class="cert-name">Data Science Mini Bootcamp 2023</div>
+                <div class="cert-name">Mini Data Science Bootcamp</div>
                 <div class="cert-meta">DataRockie · 2023</div>
                 <div class="cert-desc">
-                  Project-based training covering data manipulation, spreadsheets, SQL, dashboards,
-                  and introductory Python analytics for real-world decision making.
+                  Project-based training on spreadsheets, SQL, dashboards, and Python analytics,
+                  focusing on turning raw data into practical business insights.
                 </div>
                 <div class="cert-tag">
                   <span class="cert-tag-dot"></span>
@@ -815,16 +860,58 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- The Supporting Cast -->
+          <p class="cert-featured-title" style="margin-top:24px;">The Supporting Cast</p>
+          <div class="cert-grid cert-grid-support">
+
+            <!-- Certified MySQL Developer -->
+            <div class="cert-card support fade-in-up">
+              <div class="cert-thumb">My</div>
+              <div class="cert-body">
+                <div class="cert-name">Certified MySQL Developer</div>
+                <div class="cert-meta">W3Schools</div>
+                <div class="cert-desc">
+                  Practiced schema design, joins, indexing, and query optimization in MySQL.
+                </div>
+              </div>
+            </div>
+
+            <!-- Certified SQL Developer -->
+            <div class="cert-card support fade-in-up">
+              <div class="cert-thumb">SQL</div>
+              <div class="cert-body">
+                <div class="cert-name">Certified SQL Developer</div>
+                <div class="cert-meta">W3Schools</div>
+                <div class="cert-desc">
+                  Covered SQL fundamentals from SELECT and JOIN to aggregation and subqueries.
+                </div>
+              </div>
+            </div>
+
+            <!-- SQL Crash Course -->
+            <div class="cert-card support fade-in-up">
+              <div class="cert-thumb">SQ</div>
+              <div class="cert-body">
+                <div class="cert-name">SQL Crash Course</div>
+                <div class="cert-meta">DataRockie</div>
+                <div class="cert-desc">
+                  Hands-on SQL practice from a data analyst perspective: exploring, filtering,
+                  and summarizing larger datasets.
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
 
-        <!-- Other Certifications -->
+        <!-- RIGHT: Hidden Gems / Additional learning -->
         <div class="cert-others fade-in-up">
-          <p class="cert-others-title">Other Certifications</p>
+          <p class="cert-others-title">Additional Learning</p>
           <ul>
-            <li>Java Programming Certificate &mdash; W3Schools</li>
-            <li>SQL / MySQL Fundamentals &mdash; W3Schools / DataRockie</li>
+            <li>Writing as a Tool for Thinking — DataRockie</li>
+            <li>Data Analyst Manifesto — DataRockie</li>
           </ul>
         </div>
 
