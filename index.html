@@ -757,27 +757,28 @@
         /* =========== Soft Skills + Languages ใต้ Skills =========*/
 
 .skills-extra {
-  margin-top: 40px;
+  margin: 40px auto 0;              /* กลาง container */
   padding-top: 24px;
-  border-top: 1px solid rgba(148, 163, 184, 0.25);
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
   align-items: flex-start;
-  justify-content: center;   /* เพิ่มบรรทัดนี้ */
+  position: relative;               /* เตรียมให้ ::before วางทับ */
+}
+
+/* เส้นกั้นแบบสั้นตรงกลาง */
+.skills-extra::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;                        /* ปรับสั้นยาวได้ 30–50% */
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .skills-extra-block {
   min-width: 260px;
-  text-align: left;          /* กันไม่ให้ตัวหนังสือไปอยู่กึ่งกลางตาม flex */
-}
-
-.skills-extra-block h4 {
-  margin: 0 0 10px;
-  font-size: 0.9rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
 }
 
 .chip-list {
