@@ -756,7 +756,7 @@
 
         /* =========== Soft Skills + Languages ใต้ Skills =========*/
 
-  .skills-extra {
+.skills-extra {
   margin-top: 40px;
   padding-top: 24px;
   border-top: 1px solid rgba(148, 163, 184, 0.25);
@@ -764,10 +764,12 @@
   flex-wrap: wrap;
   gap: 32px;
   align-items: flex-start;
+  justify-content: center;   /* เพิ่มบรรทัดนี้ */
 }
 
 .skills-extra-block {
   min-width: 260px;
+  text-align: left;          /* กันไม่ให้ตัวหนังสือไปอยู่กึ่งกลางตาม flex */
 }
 
 .skills-extra-block h4 {
@@ -1035,7 +1037,7 @@
             <div class="chip-list">
               <span class="chip">Thai — Native</span>
               <span class="chip">
-                English — Intermediate (comfortable with documentation &amp; team communication)
+                English: Professional Working Proficiency (CEFR B2) - Certified by British Council
               </span>
             </div>
           </div>
