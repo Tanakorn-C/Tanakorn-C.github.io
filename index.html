@@ -756,12 +756,18 @@
 
         /* =========== Soft Skills + Languages ใต้ Skills =========*/
 
-    .skills-extra {
+  .skills-extra {
   margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
   align-items: flex-start;
+}
+
+.skills-extra-block {
+  min-width: 260px;
 }
 
 .skills-extra-block h4 {
@@ -925,29 +931,6 @@
             </div>
           </div>
 
-          <div class="skills-extra">
-  <!-- Soft Skills -->
-  <div class="skills-extra-block">
-    <h4>Soft Skills</h4>
-    <div class="chip-list">
-      <span class="chip">Self Learning</span>
-      <span class="chip">Adaptability</span>
-      <span class="chip">Problem Solving</span>
-      <span class="chip">Composure</span>
-    </div>
-  </div>
-
-  <!-- Languages -->
-  <div class="skills-extra-block">
-    <h4>Languages</h4>
-    <div class="chip-list">
-      <span class="chip">Thai — Native</span>
-      <span class="chip">English — Intermediate (comfortable with documentation &amp; team communication)</span>
-    </div>
-  </div>
-</div>
-
-
           <!-- Frameworks & Platforms -->
           <div class="skills-category">
             <h4>Frameworks &amp; Platforms</h4>
@@ -1032,6 +1015,31 @@
         </div>
       </div>
     </section>
+
+    <!-- Soft Skills & Languages ใต้ skills ทั้งหมด -->
+        <div class="skills-extra">
+          <!-- Soft Skills -->
+          <div class="skills-extra-block">
+            <h4>Soft Skills</h4>
+            <div class="chip-list">
+              <span class="chip">Self Learning</span>
+              <span class="chip">Adaptability</span>
+              <span class="chip">Problem Solving</span>
+              <span class="chip">Composure</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="skills-extra-block">
+            <h4>Languages</h4>
+            <div class="chip-list">
+              <span class="chip">Thai — Native</span>
+              <span class="chip">
+                English — Intermediate (comfortable with documentation &amp; team communication)
+              </span>
+            </div>
+          </div>
+        </div>
 
     <!-- PROJECTS -->
     <section id="projects" class="section section--soft">
