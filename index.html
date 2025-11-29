@@ -65,27 +65,28 @@
     }
 
     .profile-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 3px solid var(--accent);
-      background: #020617;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
-    }
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  background: #020617;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.8);
+}
 
-    .name-block h1 {
-      margin: 0 0 4px;
-      font-size: 2rem;
-      letter-spacing: 0.02em;
-    }
+.name-block h1 {
+  margin: 0 0 6px;
+  font-size: 2.4rem;
+  letter-spacing: 0.03em;
+}
 
-    .name-block h2 {
-      margin: 0;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
+.name-block h2 {
+  margin: 0;
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 
     .pill {
       display: inline-flex;
@@ -235,6 +236,71 @@
         grid-template-columns: 1fr 1fr;
       }
     }
+
+    /* EXPERIENCE */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.experience-item {
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
+  border-radius: var(--radius-lg);
+  padding: 16px 18px 14px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.75);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.experience-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(56, 189, 248, 0.8);
+}
+
+.exp-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exp-header h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.exp-org {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .exp-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+.exp-meta {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.exp-desc {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.exp-desc li {
+  margin-bottom: 4px;
+}
+
 
     .project-card {
       position: relative;
@@ -554,6 +620,27 @@
 
       </div>
     </section>
+
+    <!-- EXPERIENCE -->
+<section id="experience" class="fade-in-up">
+  <h3>Experience</h3>
+  <div class="experience-list">
+
+    <div class="experience-item fade-in-up">
+      <div class="exp-header">
+        <h4>Teacher's Assistant</h4>
+        <span class="exp-org">Depa Thailand · Remote</span>
+      </div>
+      <div class="exp-meta">Aug 2023 – Oct 2023</div>
+      <ul class="exp-desc">
+        <li>Facilitated virtual workshops guiding senior entrepreneurs on digital marketing applications for business growth.</li>
+        <li>Simplified technical concepts for non-technical audiences, demonstrating strong patience and communication skills.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 
     <footer class="fade-in-up">
       <span>© <span id="year"></span> <span class="accent">Tanakorn Channgarm</span></span>
