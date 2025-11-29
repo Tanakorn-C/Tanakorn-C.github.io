@@ -2,31 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Name | Software Developer Intern</title>
+  <title>Tanakorn Channgarm | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0b1120;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --radius-lg: 16px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #020617 100%);
+      color: var(--text-main);
     }
 
     .container {
-      max-width: 960px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 40px 20px 80px;
     }
 
+    /* HEADER */
     header {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
       gap: 24px;
-      margin-bottom: 32px;
-      border-bottom: 1px solid #1f2937;
+      margin-bottom: 40px;
       padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .profile-photo {
@@ -34,103 +69,165 @@
       height: 120px;
       border-radius: 999px;
       object-fit: cover;
-      border: 2px solid #38bdf8;
+      border: 3px solid var(--accent);
       background: #020617;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
     }
 
     .name-block h1 {
-      margin: 0;
-      font-size: 1.8rem;
+      margin: 0 0 4px;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
     }
 
     .name-block h2 {
-      margin: 4px 0 0;
-      font-size: 1rem;
-      color: #9ca3af;
-      font-weight: normal;
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     nav {
-      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      font-size: 0.9rem;
     }
 
     nav a {
-      font-size: 0.9rem;
-      color: #9ca3af;
+      color: var(--text-muted);
       text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
     nav a:hover {
-      color: #e5e7eb;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--border-subtle);
     }
 
+    /* SECTIONS */
     section {
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     section h3 {
-      margin: 0 0 12px;
+      margin: 0 0 16px;
       font-size: 1.2rem;
-      border-left: 4px solid #38bdf8;
-      padding-left: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    section h3::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     .about-text {
-      line-height: 1.6;
-      font-size: 0.95rem;
+      line-height: 1.7;
+      font-size: 0.96rem;
       color: #d1d5db;
+      max-width: 720px;
     }
 
+    .about-text span.highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* SKILLS */
     .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 32px;
-  justify-items: center;
-}
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 28px;
+      margin-top: 12px;
+    }
 
-.skill-item {
-  text-align: center;
-  max-width: 200px;
-}
+    .skill-item {
+      text-align: center;
+      max-width: 210px;
+      margin: 0 auto;
+      padding: 14px 10px 4px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
 
-.skill-icon {
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-  border-radius: 999px;
-  background: #f9fafb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 12px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-}
+    .skill-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.8);
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+    }
 
-.skill-icon span {
-  font-size: 1.6rem;
-}
+    .skill-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #e0f2fe 0, #bae6fd 30%, #f9fafb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.45);
+    }
 
-.skill-item h4 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-  color: #e5e7eb;
-}
+    .skill-icon img {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+    }
 
-.skill-item p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: #9ca3af;
-}
-    
+    .skill-item h4 {
+      margin: 0 0 4px;
+      font-size: 0.98rem;
+      color: var(--text-main);
+    }
 
+    .skill-item p {
+      margin: 0 0 8px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
 
+    /* PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 22px;
     }
 
     @media (min-width: 768px) {
@@ -140,23 +237,47 @@
     }
 
     .project-card {
-      background: #020617;
-      border-radius: 12px;
-      padding: 14px 16px;
-      border: 1px solid #1f2937;
+      position: relative;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border-subtle);
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.7);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      pointer-events: none;
+      transition: border-color 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(56, 189, 248, 0.8);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), var(--bg-soft));
+    }
+
+    .project-card:hover::before {
+      border-color: rgba(148, 163, 184, 0.3);
     }
 
     .project-card h4 {
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.02rem;
     }
 
     .project-meta {
       font-size: 0.8rem;
-      color: #9ca3af;
+      color: var(--text-muted);
     }
 
     .project-desc {
@@ -164,217 +285,300 @@
       color: #d1d5db;
     }
 
-    .project-links a {
-      font-size: 0.85rem;
-      color: #38bdf8;
-      text-decoration: none;
-      margin-right: 8px;
+    .project-desc li {
+      margin-bottom: 4px;
     }
 
-    .project-links a:hover {
-      text-decoration: underline;
+    .project-links {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--text-main);
+      box-shadow: 0 10px 24px rgba(8, 47, 73, 0.7);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #0b1120;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(8, 47, 73, 0.9);
+    }
+
+    .btn span.icon {
+      font-size: 0.9rem;
     }
 
     footer {
-      margin-top: 32px;
-      border-top: 1px solid #1f2937;
+      margin-top: 40px;
+      border-top: 1px solid var(--border-subtle);
       padding-top: 16px;
       font-size: 0.8rem;
       color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    footer span.accent {
+      color: var(--accent);
+    }
+
+    /* Fade-in up animation */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <!-- SECTION 1: PHOTO + NAME -->
-    <header>
-      <!-- เปลี่ยน src เป็นลิงก์รูปของคุณ -->
-      <img
-        class="profile-photo"
-        src="assets/Profile.jpg"
-        alt="TanakorncProfile"
-      />
+    <!-- HEADER -->
+    <header class="fade-in-up">
+      <div class="header-main">
+        <img
+          class="profile-photo"
+          src="assets/Profile.jpg"
+          alt="Tanakorn Profile"
+        />
 
-      <div class="name-block">
-        <h1>Tanakorn Channgarm</h1>
-        <h2>Computer Science Student · Software Developer Intern</h2>
-
-        <nav>
-          <!-- แก้ลิงก์ตามจริง -->
-          <a href="mailto:tanakorncn.159@gmail.com">tanakorncn.159@gmail.com</a>
-          <a href="https://www.linkedin.com/in/tanakorn-c-092038346" target="_blank">LinkedIn</a>
-        </nav>
+        <div class="name-block">
+          <h1>Tanakorn Channgarm</h1>
+          <h2>Computer Science Student · Software Developer Intern</h2>
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Focused on Mobile & Backend Development</span>
+          </div>
+        </div>
       </div>
+
+      <nav>
+        <a href="mailto:tanakorncn.159@gmail.com">tanakorncn.159@gmail.com</a>
+        <a href="https://www.linkedin.com/in/tanakorn-c-092038346" target="_blank">LinkedIn</a>
+      </nav>
     </header>
 
-    <!-- SECTION 2: ABOUT -->
-    <section id="about">
+    <!-- ABOUT -->
+    <section id="about" class="fade-in-up">
       <h3>About</h3>
       <p class="about-text">
-        Computer Science student committed to continuous improvement and eager to apply technical expertise in a professional environment.
-I am currently pursuing a Bachelor's degree in Computer Science at the University of the Thai Chamber of Commerce (UTCC) with a GPAX of 3.36.
-        During my studies, I have focused heavily on Mobile and Backend Development, gaining hands-on experience by building an Android application using Flutter and Spring Boot. 
-        I also explored complex logic and object-oriented programming through Game Development with Unity (C#).
-Beyond coding, my experience as a Teacher's Assistant has strengthened my communication skills and adaptability. 
-        I am now ready to leverage my existing skills to deliver high-quality software solutions and eager to master new technologies in the software development field.
+        I am a Computer Science student at the <span class="highlight">University of the Thai Chamber of Commerce (UTCC)</span>,
+        currently maintaining a GPAX of 3.36. My main focus is on <span class="highlight">mobile and backend development</span>,
+        where I have hands-on experience building an Android medicine reminder application using
+        <span class="highlight">Flutter</span> and <span class="highlight">Spring Boot</span>.
+        I also explore complex logic and object-oriented programming through game development in
+        <span class="highlight">Unity (C#)</span>.
+        <br /><br />
+        Beyond coding, my experience as a Teacher's Assistant has strengthened my communication,
+        patience, and adaptability. I am eager to apply my skills in a real-world environment,
+        contribute to meaningful projects, and continue growing as a software developer.
       </p>
     </section>
 
-    <!-- SECTION 3: SKILLS -->
- <!-- SECTION 3: SKILLS -->
-<section id="skills">
-  <h3>Skills</h3>
-  <div class="skills-grid">
+    <!-- SKILLS -->
+    <section id="skills" class="fade-in-up">
+      <h3>Skills</h3>
+      <div class="skills-grid">
 
-    <!-- Languages -->
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" />
+        <!-- Languages -->
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" />
+          </div>
+          <h4>Python</h4>
+          <p>Scripting, utilities, and quiz logic for learning tools.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" />
+          </div>
+          <h4>Java</h4>
+          <p>OOP foundations and data structures from coursework.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# icon" />
+          </div>
+          <h4>C#</h4>
+          <p>Unity game systems and turn-based combat logic.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" />
+          </div>
+          <h4>JavaScript</h4>
+          <p>Interactive UI and basic web application logic.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart icon" />
+          </div>
+          <h4>Dart</h4>
+          <p>Flutter UI, state handling, and notification flows.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL icon" />
+          </div>
+          <h4>SQL</h4>
+          <p>Queries, joins, and basic data modeling.</p>
+        </div>
+
+        <!-- Frameworks & Tools -->
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot icon" />
+          </div>
+          <h4>Spring Boot</h4>
+          <p>REST APIs and backend services for schedules and alarms.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter icon" />
+          </div>
+          <h4>Flutter</h4>
+          <p>Android medicine reminder UI and workflows.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity icon" />
+          </div>
+          <h4>Unity Engine</h4>
+          <p>2D turn-based RPG systems and gameplay events.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB icon" />
+          </div>
+          <h4>MongoDB</h4>
+          <p>Document schemas for medicines and quiz content.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git icon" />
+          </div>
+          <h4>Git / GitHub</h4>
+          <p>Branching, commits, and collaborative workflow.</p>
+        </div>
+
+        <div class="skill-item fade-in-up">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma icon" />
+          </div>
+          <h4>Figma</h4>
+          <p>Wireframes, prototypes, and UI component design.</p>
+        </div>
+
       </div>
-      <h4>Python</h4>
-      <p>Scripting, logic for quiz & backend utilities.</p>
-    </div>
+    </section>
 
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" />
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-in-up">
+      <h3>Projects</h3>
+      <div class="projects-grid">
+
+        <div class="project-card fade-in-up">
+          <h4>Medicine Reminder Application</h4>
+          <div class="project-meta">
+            Flutter · Android · Spring Boot · MongoDB
+          </div>
+          <p class="project-desc">
+            Android application that helps patients improve medication adherence with clear schedules and timely reminders.
+          </p>
+          <ul class="project-desc">
+            <li>Developed the mobile app in Flutter, focusing on clean UI and simple user flows for adding and managing medicines.</li>
+            <li>Architected a Spring Boot backend with MongoDB for CRUD operations on medication schedules, images, and custom alarm triggers.</li>
+            <li>Connected the app and backend via REST APIs to keep local reminders in sync with server data.</li>
+          </ul>
+          <div class="project-links">
+            <!-- TODO: แก้ลิงก์ให้เป็น repo จริงของคุณ -->
+            <a class="btn" href="https://github.com/your-github-username/medicine-reminder" target="_blank">
+              <span class="icon">↗</span>
+              <span>View on GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-up">
+          <h4>Educational RPG Game – “Coding is Magic”</h4>
+          <div class="project-meta">
+            Unity · C# · 2D Turn-based RPG
+          </div>
+          <p class="project-desc">
+            A 2D turn-based adventure game designed to teach Python programming fundamentals through gamification and quizzes.
+          </p>
+          <ul class="project-desc">
+            <li>Implemented the core combat system in Unity using C#, including turn order, actions, and player feedback.</li>
+            <li>Created mechanics where casting spells requires solving quiz questions, with damage and bonuses based on accuracy and response time.</li>
+            <li>Designed a dynamic content system so instructors can add, edit, or remove quiz questions to adapt the learning curriculum.</li>
+          </ul>
+          <div class="project-links">
+            <!-- TODO: แก้ลิงก์ให้เป็น repo จริงของคุณ -->
+            <a class="btn" href="https://github.com/your-github-username/coding-is-magic" target="_blank">
+              <span class="icon">↗</span>
+              <span>View on GitHub</span>
+            </a>
+          </div>
+        </div>
+
       </div>
-      <h4>Java</h4>
-      <p>OOP foundations and data structures from coursework.</p>
-    </div>
+    </section>
 
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# icon" />
-      </div>
-      <h4>C#</h4>
-      <p>Unity game systems and turn-based combat logic.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" />
-      </div>
-      <h4>JavaScript</h4>
-      <p>Interactive UI and basic web application logic.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart icon" />
-      </div>
-      <h4>Dart</h4>
-      <p>Flutter UI, state handling, and notification flows.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL icon" />
-      </div>
-      <h4>SQL</h4>
-      <p>Queries, joins, and basic data modeling.</p>
-    </div>
-
-    <!-- Frameworks & Tools -->
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot icon" />
-      </div>
-      <h4>Spring Boot</h4>
-      <p>REST APIs for medicine schedules and backend services.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter icon" />
-      </div>
-      <h4>Flutter</h4>
-      <p>Android medicine reminder UI and alarm workflows.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity icon" />
-      </div>
-      <h4>Unity Engine</h4>
-      <p>2D turn-based RPG systems and gameplay events.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB icon" />
-      </div>
-      <h4>MongoDB</h4>
-      <p>Document schemas for medicines and quiz content.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git icon" />
-      </div>
-      <h4>Git / GitHub</h4>
-      <p>Branching, commits, and project collaboration.</p>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-icon">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma icon" />
-      </div>
-      <h4>Figma</h4>
-      <p>Wireframes, prototypes, components.</p>
-    </div>
-
-  </div>
-</section>
-
-
-    <!-- SECTION 4: PROJECTS -->
-   <section id="projects">
-  <h3>Projects</h3>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <h4>Medicine Reminder Application</h4>
-      <div class="project-meta">
-        Flutter · Android · Spring Boot · MongoDB
-      </div>
-      <p class="project-desc">
-        Android application that helps patients improve medication adherence with clear schedules and timely reminders.
-      </p>
-      <ul class="project-desc">
-        <li>Developed the mobile app in Flutter, focusing on clean UI and simple user flows for adding and managing medicines.</li>
-        <li>Architected a Spring Boot backend with MongoDB for CRUD operations on medication schedules, images, and custom alarm triggers.</li>
-        <li>Connected the app and backend through REST APIs to keep local reminders in sync with server data.</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <h4>Educational RPG Game – "Coding is Magic"</h4>
-      <div class="project-meta">
-        Unity · C# · 2D Turn-based RPG
-      </div>
-      <p class="project-desc">
-        A 2D turn-based adventure game designed to teach Python programming fundamentals through gamification and quizzes.
-      </p>
-      <ul class="project-desc">
-        <li>Built the core combat system in Unity using C#, including turn order, actions, and feedback to the player.</li>
-        <li>Implemented mechanics where casting spells requires solving quiz questions, with damage and bonuses based on accuracy and response time.</li>
-        <li>Designed a dynamic content system so instructors can add, edit, or remove quiz questions to adapt the learning curriculum.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
-    <footer>
-      © <span id="year"></span> Your Name. Built for Software Developer Intern applications.
+    <footer class="fade-in-up">
+      <span>© <span id="year"></span> <span class="accent">Tanakorn Channgarm</span></span>
+      <span>Built for Software Developer Intern applications.</span>
     </footer>
   </div>
 
   <script>
-    // เติมปีปัจจุบันอัตโนมัติ
+    // ปีปัจจุบัน
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Fade-in up on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
