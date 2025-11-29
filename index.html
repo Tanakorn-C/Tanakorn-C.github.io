@@ -307,17 +307,9 @@
 
     /* ===================== ABOUT ===================== */
 
-    .about-grid {
-      display: grid;
-      gap: 32px;
-    }
-
-    @media (min-width: 800px) {
-      .about-grid {
-        grid-template-columns: 2.1fr 1.4fr;
-        align-items: start;
-      }
-    }
+   .about-grid {
+  max-width: 800px;
+}
 
     .about-text {
       font-size: 0.96rem;
@@ -773,14 +765,11 @@
           <span>Tanakorn Channgarm</span> · Software Developer
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#projects" class="cta-link">View Projects</a>
-      </nav>
+<nav class="nav-links">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+</nav>
     </div>
   </header>
 
@@ -802,8 +791,10 @@
           </div>
         </div>
         <p class="hero-tagline">
-          Building real-world applications from medicine reminder systems to educational RPG games.
-          I enjoy turning ideas into usable software with clean code and clear user flows.
+          <p class="hero-tagline">
+  I build practical apps, from medicine reminder systems to educational RPGs, and I enjoy turning complex ideas into simple, reliable software with clear user flows.
+</p>
+
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">View Projects</a>
@@ -832,15 +823,7 @@
             contribute to meaningful projects, and continue growing as a software developer.
           </div>
 
-          <aside class="about-highlights">
-            <h4>Highlights</h4>
-            <ul>
-              <li>Built a full-stack <strong>Medicine Reminder</strong> app (Flutter + Spring Boot + MongoDB).</li>
-              <li>Developed <strong>"Coding is Magic"</strong>, a 2D educational RPG in Unity (C#) teaching Python.</li>
-              <li>Project showcased at university Open House and awarded <strong>2nd place</strong> in CS showcase.</li>
-              <li>Teacher's Assistant for digital skills workshops with <strong>Depa Thailand</strong>.</li>
-            </ul>
-          </aside>
+         
         </div>
       </div>
     </section>
