@@ -64,25 +64,25 @@
       flex-wrap: wrap;
     }
 
- .profile-photo {
-  width: 180px;
-  height: 180px;
+.profile-photo {
+  width: 220px;
+  height: 220px;
   border-radius: 999px;
   object-fit: cover;
   border: 3px solid var(--accent);
   background: #020617;
-  box-shadow: 0 20px 48px rgba(0,0,0,0.9);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.95);
 }
 
 .name-block h1 {
-  margin: 0 0 8px;
-  font-size: 2.8rem;
-  letter-spacing: 0.04em;
+  margin: 0 0 10px;
+  font-size: 3.2rem;
+  letter-spacing: 0.05em;
 }
 
 .name-block h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text-muted);
   font-weight: 400;
 }
@@ -433,7 +433,7 @@
 
         <div class="name-block">
           <h1>Tanakorn Channgarm</h1>
-          <h2>Computer Science Student · Software Developer Intern</h2>
+          <h2>Computer Science Student · Software Developer</h2>
           <div class="pill">
             <span class="pill-dot"></span>
             <span>Focused on Mobile & Backend Development</span>
@@ -465,58 +465,113 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="fade-in-up">
-      <h3>Skills</h3>
-      <div class="skills-grid">
+   <section id="skills" class="fade-in-up">
+  <h3>Skills</h3>
+  <div class="skills-grid">
 
-        <!-- Languages -->
-        <div class="skill-item fade-in-up">
-          <div class="skill-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" />
-          </div>
-          <h4>Python</h4>
-          <p>Scripting, utilities, and quiz logic for learning tools.</p>
-        </div>
+    <!-- Java FIRST -->
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" />
+      </div>
+      <h4>Java</h4>
+      <p>OOP foundations and data structures from coursework.</p>
+    </div>
 
-        <div class="skill-item fade-in-up">
-          <div class="skill-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" />
-          </div>
-          <h4>Java</h4>
-          <p>OOP foundations and data structures from coursework.</p>
-        </div>
+    <!-- Flutter SECOND -->
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter icon" />
+      </div>
+      <h4>Flutter</h4>
+      <p>Android medicine reminder UI and workflows.</p>
+    </div>
 
-        <div class="skill-item fade-in-up">
-          <div class="skill-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# icon" />
-          </div>
-          <h4>C#</h4>
-          <p>Unity game systems and turn-based combat logic.</p>
-        </div>
+    <!-- ที่เหลือเรียงต่อไป -->
 
-        <div class="skill-item fade-in-up">
-          <div class="skill-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" />
-          </div>
-          <h4>JavaScript</h4>
-          <p>Interactive UI and basic web application logic.</p>
-        </div>
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" />
+      </div>
+      <h4>Python</h4>
+      <p>Scripting, utilities, and quiz logic for learning tools.</p>
+    </div>
 
-        <div class="skill-item fade-in-up">
-          <div class="skill-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart icon" />
-          </div>
-          <h4>Dart</h4>
-          <p>Flutter UI, state handling, and notification flows.</p>
-        </div>
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# icon" />
+      </div>
+      <h4>C#</h4>
+      <p>Unity game systems and turn-based combat logic.</p>
+    </div>
 
-        <div class="skill-item fade-in-up">
-          <div class="skill-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL icon" />
-          </div>
-          <h4>SQL</h4>
-          <p>Queries, joins, and basic data modeling.</p>
-        </div>
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" />
+      </div>
+      <h4>JavaScript</h4>
+      <p>Interactive UI and basic web application logic.</p>
+    </div>
+
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart icon" />
+      </div>
+      <h4>Dart</h4>
+      <p>Flutter UI, state handling, and notification flows.</p>
+    </div>
+
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL icon" />
+      </div>
+      <h4>SQL</h4>
+      <p>Queries, joins, and basic data modeling.</p>
+    </div>
+
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot icon" />
+      </div>
+      <h4>Spring Boot</h4>
+      <p>REST APIs and backend services for schedules and alarms.</p>
+    </div>
+
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity icon" />
+      </div>
+      <h4>Unity Engine</h4>
+      <p>2D turn-based RPG systems and gameplay events.</p>
+    </div>
+
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB icon" />
+      </div>
+      <h4>MongoDB</h4>
+      <p>Document schemas for medicines and quiz content.</p>
+    </div>
+
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git icon" />
+      </div>
+      <h4>Git / GitHub</h4>
+      <p>Branching, commits, and collaborative workflow.</p>
+    </div>
+
+    <div class="skill-item fade-in-up">
+      <div class="skill-icon">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma icon" />
+      </div>
+      <h4>Figma</h4>
+      <p>Wireframes, prototypes, and UI component design.</p>
+    </div>
+
+  </div>
+</section>
+
 
         <!-- Frameworks & Tools -->
         <div class="skill-item fade-in-up">
@@ -646,7 +701,7 @@
 
     <footer class="fade-in-up">
       <span>© <span id="year"></span> <span class="accent">Tanakorn Channgarm</span></span>
-      <span>Built for Software Developer Intern applications.</span>
+      
     </footer>
   </div>
 
