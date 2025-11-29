@@ -390,6 +390,132 @@
       font-size: 0.9rem;
     }
 
+    /* CERTIFICATES */
+.cert-layout {
+  display: grid;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+@media (min-width: 860px) {
+  .cert-layout {
+    grid-template-columns: 3fr 2fr;
+    align-items: flex-start;
+  }
+}
+
+.cert-featured-title,
+.cert-others-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.cert-card {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding: 14px 14px 12px;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), var(--bg-card));
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(56, 189, 248, 0.9);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), var(--bg-soft));
+}
+
+.cert-thumb {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 0, #e0f2fe 0, #bae6fd 30%, #f9fafb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.55);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cert-name {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.cert-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.cert-desc {
+  font-size: 0.86rem;
+  color: #d1d5db;
+}
+
+.cert-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.cert-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* Other certs list */
+.cert-others {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 14px 16px 12px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.6);
+}
+
+.cert-others ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 0.86rem;
+  color: #d1d5db;
+}
+
+.cert-others li {
+  margin-bottom: 4px;
+}
+
+
     footer {
       margin-top: 40px;
       border-top: 1px solid var(--border-subtle);
@@ -644,6 +770,70 @@
 
   </div>
 </section>
+
+        <!-- CERTIFICATES -->
+    <section id="certificates" class="fade-in-up">
+      <h3>Certificates & Continuous Learning</h3>
+
+      <div class="cert-layout">
+
+        <!-- Featured Certificates -->
+        <div>
+          <p class="cert-featured-title">Featured Certificates</p>
+          <div class="cert-grid">
+
+            <!-- Backend Developer with Java -->
+            <div class="cert-card fade-in-up">
+              <div class="cert-thumb">J</div>
+              <div class="cert-body">
+                <div class="cert-name">Backend Developer with Java</div>
+                <div class="cert-meta">W3Schools · 2023</div>
+                <div class="cert-desc">
+                  Focused on Java web backend fundamentals including Servlet, JSP, and basic enterprise architecture,
+                  building a solid foundation for frameworks like Spring Boot.
+                </div>
+                <div class="cert-tag">
+                  <span class="cert-tag-dot"></span>
+                  <span>Backend · Java · Web</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Science Mini Bootcamp -->
+            <div class="cert-card fade-in-up">
+              <div class="cert-thumb">DS</div>
+              <div class="cert-body">
+                <div class="cert-name">Data Science Mini Bootcamp 2023</div>
+                <div class="cert-meta">DataRockie · 2023</div>
+                <div class="cert-desc">
+                  Project-based training covering data manipulation, spreadsheets, SQL, dashboards,
+                  and introductory Python analytics for real-world decision making.
+                </div>
+                <div class="cert-tag">
+                  <span class="cert-tag-dot"></span>
+                  <span>Data · SQL · Analytics</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Other Certifications -->
+        <div class="cert-others fade-in-up">
+          <p class="cert-others-title">Other Certifications</p>
+          <ul>
+            <li>Java Programming Certificate &mdash; W3Schools</li>
+            <li>SQL / MySQL Fundamentals &mdash; W3Schools / DataRockie</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="fade-in-up">
+      <span>© <span id="year"></span> <span class="accent">Tanakorn Channgarm</span></span>
+    </footer>
 
 
     <footer class="fade-in-up">
